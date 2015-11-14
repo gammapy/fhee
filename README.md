@@ -1,12 +1,15 @@
-# fhee
-
-Fermi High Energy Explorer - A tutorial for PyGamma15
-
-## How does the tutorial work?
+# Fermi High Energy Explorer (FHEE)
 
 This is the repository for a Python tutorial for gamma-ray astronomers given by
 Axel Donath and Christoph Deil in November 2015 at the
 [PyGamma15](http://gammapy.github.io/PyGamma15/) workshop.
+
+It's for advanced beginners, i.e. gamma-ray astronomers
+that have used FITS files and written a script that uses
+Python and Astropy before, but don't know much about
+Python functions, classes, modules, packages, tests, docs yet.
+
+## How does the tutorial work?
 
 The basic idea of the tutorial is to start with some bad Python code and incrementally turn it into better Python code. We will go from buggy spaghetti code to a well-structured Python package with tests and docs and functionality that can re-used (installed and imported from other packages and shared with colleagues as a tarball).
 
