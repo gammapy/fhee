@@ -2,7 +2,7 @@
 
 Fermi High Energy Explorer - A tutorial for PyGamma15
 
-## What is this?
+## How does the tutorial work?
 
 This is the repository for a Python tutorial for gamma-ray astronomers given by
 Axel Donath and Christoph Deil in November 2015 at the
@@ -12,17 +12,33 @@ The basic idea of the tutorial is to start with some bad Python code and increme
 
 This will be mostly a demo, where we do live coding and explain what's going on. In the second half we'll introduce a bunch of Python development tools (e.g. `pytest` to run tests or `sphinx` to generate HTML documentation), there it's easier if you want to follow along and run the commands for yourself.
 
-We've structured the tutorial into a series of TODO steps and put the starting point for each step of this project into folders called `vXX` you 
-There will be a 
+We've structured the tutorial into a series of TODO steps and put the starting point for each step of this project into folders called `vXX`. You can also use these during or after the tutorial to try stuff out.
 
-but participants can try to follow along by doing the same changes and edits.
+At the end we'll leave 30 minutes for an exercise where you get to apply the newly learned skills and extend the package by writing a function with docs and tests.
 
- code as a starting point and incrementally t 
+## What's the `fhee` package?
 
-This tutorial will briefly introduce you to a bunch of tools that can
-help you as a Python developer to be more productive.
-We will spend on average ~ 10 minutes per tool, with a ~ 5 min intro / demo,
-followed by you using the tool for a few minutes.
+In this tutorial we'll create the Fermi-LAT High Energy Explorer (`fhee`) package together.
+
+The goal is to write some code to find the highest-energy photons near 2FHL catalog sources.
+
+The input data files are:
+
+* `data/gll_psch_v08.fit.gz` -- The Fermi-LAT 2FHL catalog
+  (downloaded from FSSC)
+* `data/2fhl_events.fits.gz` -- The event list corresponding to 2FHL
+  (obtained from Marco Ajello with permission to share publicly on November 12, 2015)
+
+We've added soft links to some of the versions of this package
+to avoid duplicating the data files (a few MB) in the git repo.
+E.g. `v01/gll_psch_v08.fit.gz` is a soft link to `data/gll_psch_v08.fit.gz`.
+
+
+## Goals
+
+The goals of this tutorial are:
+
+- 
 
 The goal is to make you aware of some of the existing tools and get you
 started. Using the links provided here you can then follow up later at 
@@ -54,14 +70,6 @@ you should install the tools listed above before and check that they work.
 As an example, to install pytest, use `pip install pytest`
 or `conda install pytest` and then run `py.test --help` to make sure
 it's working (if you see some help message, you're all set).
-
-
-## Data files
-
-* `gll_psch_v08.fit.gz` -- The Fermi-LAT 2FHL catalog
-  (downloaded from FSSC)
-* `2fhl_events.fits.gz` -- The event list corresponding to 2FHL
-  (obtained from Marco Ajello with permission to share publicly on November 12, 2015)
 
 
 ## Tutorial playbook
@@ -110,8 +118,11 @@ Vastly improved code:
 - Add setup.py
 - shareable package tarball (maybe put on PyPI, maybe not)
 - leave as one module or make it a package?
+- Add a license
 
-## Will be done extra
+## Will be done on extra files
 
 - python-modernize and six - Python 2 / 3 compatible code
 - pep8 and autopep8, static code analysis
+
+### v?? - Exercise
