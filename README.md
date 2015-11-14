@@ -9,7 +9,10 @@ that have used FITS files and written a script that uses
 Python and Astropy before, but don't know much about
 Python functions, classes, modules, packages, tests, docs yet.
 
-If you want to participate in the tutorial 
+**If you want to follow along in the tutorial by running the
+code examples and doing the exercise at the end, please
+follow the instructions in the [Preparation / Requirements](https://github.com/gammapy/fhee#preparation--requirements) section below and install the required software
+before the tutorial starts**!
 
 
 ## How does the tutorial work?
@@ -55,31 +58,38 @@ Hopefully you'll have some fun and find the example we've chosen interesting!
 
 ## Preparation / Requirements
 
+If you want to follow along during the tutorial by coding and running commands yourself and doing the exercise,
+you should git clone the https://github.com/gammapy/fhee repo (or download it as a zip file and extract it).
 
-If you want to follow along during the tutorial and do the exercises,
-you should install the tools listed above before and check that they work.
+And you should install the following software listed here.
 
-As an example, to install pytest, use `pip install pytest`
-or `conda install pytest` and then run `py.test --help` to make sure
-it's working (if you see some help message, you're all set).
+We recommend you follow the instructions [here](https://github.com/gammapy/PyGamma15/tree/gh-pages/tutorials#anaconda)
+(if there's no conda package, use pip) to simultaneously install a scientific **Python version 2.7 and 3.4**,
+(because one of the things we'll explain is the differences between Python 2 and 3):
 
-
-We plan to cover the following tools:
-
-* Python 2 and 3
-* IPython
+* Python itself
+* [IPython](http://ipython.org/), including the [Jupyter notebook](http://jupyter.org/) for Python 2 and 3
 * [pytest](http://pytest.org/latest/) – Testing Python packages
 * [Sphinx](http://sphinx-doc.org/) – Documenting Python packages
 * [coverage.py](http://coverage.readthedocs.org/en/latest/) - Measure code coverage
-* [PyCharm](https://www.jetbrains.com/pycharm/) - The most intelligent Python IDE
-* [python-modernize](https://github.com/mitsuhiko/python-modernize) and [six](http://pythonhosted.org/six/) - Python 2 / 3 compatible code
-* [pep8](http://pep8.readthedocs.org/en/latest/) - Python [PEP8](https://www.python.org/dev/peps/pep-0008/) style guide checker
-* [autopep8](https://github.com/hhatto/autopep8#autopep8) - Python PEP8 auto code formatter
-* [prospector](http://prospector.readthedocs.org/en/master/) - Python static analysis
 * [pip](https://pip.pypa.io/en/latest/),
   [virtualenv](https://virtualenv.pypa.io/en/latest/),
   [setuptools](http://pythonhosted.org/setuptools/) - [Python packaging](https://packaging.python.org/en/latest/current.html)
+* [six](http://pythonhosted.org/six/) - Python 2 / 3 compatible code
 
+The following packages / tools we only use as command line tools, not Python packages,
+and they work the same whether you install it using Python 2 or 3.
+So it's enough to install those in one version of Python (using the Python 3.4 version is fine, here):
+
+* [python-modernize](https://github.com/mitsuhiko/python-modernize) and 
+* [pep8](http://pep8.readthedocs.org/en/latest/) - Python [PEP8](https://www.python.org/dev/peps/pep-0008/) style guide checker
+* [autopep8](https://github.com/hhatto/autopep8#autopep8) - Python PEP8 auto code formatter
+* [prospector](http://prospector.readthedocs.org/en/master/) - Python static analysis
+
+We'll also demo PyCharm ... install it if you'd like to try it out, but if you have another editor you like for Python programming,
+that's OK, too:
+
+* [PyCharm](https://www.jetbrains.com/pycharm/) - The most intelligent Python IDE
 
 ## Tutorial playbook
 
