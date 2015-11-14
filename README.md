@@ -9,6 +9,9 @@ that have used FITS files and written a script that uses
 Python and Astropy before, but don't know much about
 Python functions, classes, modules, packages, tests, docs yet.
 
+If you want to participate in the tutorial 
+
+
 ## How does the tutorial work?
 
 The basic idea of the tutorial is to start with some bad Python code and incrementally turn it into better Python code. We will go from buggy spaghetti code to a well-structured Python package with tests and docs and functionality that can re-used (installed and imported from other packages and shared with colleagues as a tarball).
@@ -43,13 +46,23 @@ The goals of this tutorial are:
 - Take your Python skills to the next level, from writing a script for yourself to writing re-usable, maintainable code
 that would be appropriate for a contribution to the open-source
 packages we'll be sprinting on at this workshop.
-- Introduce you to some Python developer tools (listed below)
-that will help you if you decide to do more Python coding form now on.
-- Do all of this using a very small toy problem / package,
-which you can use as a playground during and after the turial.
-- Hopefully you'll have some fun and find the example we've chosen interesting!
+- Introduce you to some Python developer tools that will help you if you decide to do more Python coding form now on.
 
-## Tools
+Do all of this using a very small toy problem / package,
+which you can use as a playground during and after the tutorial.
+
+Hopefully you'll have some fun and find the example we've chosen interesting!
+
+## Preparation / Requirements
+
+
+If you want to follow along during the tutorial and do the exercises,
+you should install the tools listed above before and check that they work.
+
+As an example, to install pytest, use `pip install pytest`
+or `conda install pytest` and then run `py.test --help` to make sure
+it's working (if you see some help message, you're all set).
+
 
 We plan to cover the following tools:
 
@@ -67,15 +80,6 @@ We plan to cover the following tools:
   [virtualenv](https://virtualenv.pypa.io/en/latest/),
   [setuptools](http://pythonhosted.org/setuptools/) - [Python packaging](https://packaging.python.org/en/latest/current.html)
 
-## How to prepare
-
-If you want to follow along during the tutorial and do the exercises,
-you should install the tools listed above before and check that they work.
-
-As an example, to install pytest, use `pip install pytest`
-or `conda install pytest` and then run `py.test --help` to make sure
-it's working (if you see some help message, you're all set).
-
 
 ## Tutorial playbook
 
@@ -90,45 +94,51 @@ it's working (if you see some help message, you're all set).
   with re-usable classes and functions, tests, docs that can be shared
   with colleagues.
 
-### v01 -- Spaghetti code
+### v01 to v02 -- Spaghetti to good code
 
+- Start with `v01`
 - The `analyse_data.py` script (~50 lines) implements the analysis.
   But it's buggy and not structured in a re-usable way.
-
-### v02 -- Good code
-
-Vastly improved code:
-
 - Fix indexing bug in highest-energy event energy print-out.
 - No import `*`, imports at the top
 - Use `astropy.table.Table` instead of `astropy.io.fits.BinTableHDU`
 - Re-factor code into functions and classes (make it more readable and re-usable)
 - Compute results as `Table`
 - Debug something
+- Now code should be roughly like `v02`
 
-### v03 -- pytest tests
+### v02 to v03 -- Testing
 
+- Start with `v02`
 - Add file `test_....py`
-- Run tests with pytests
+- Run tests with pytest
 - Run coverage.py
+- Now code should be roughly like `v03`
 
-### v04 -- Sphinx docs
+### v03 to v04 -- Documentation
 
+- Start with `v03`
 - Add folder `docs`
 - Use sphinx-quickstart to add sphinx docs
+- Now code should be roughly like `v04`
 
 ### v05 -- Packaging, setup.py
 
+- Start with `v04`
 - Use virtualenv to explain how Python install works.
 - Add setup.py
 - shareable package tarball (maybe put on PyPI, maybe not)
 - leave as one module or make it a package?
 - Add a license
+- Now code should be roughly like `v05`
 
-## Will be done on extra files
+## Code analysis and transformation tools
 
+- This is an optional part, will be skipped if we're short on time...
+- `cd code_analysis_trafo`
 - python-modernize and six - Python 2 / 3 compatible code
 - pep8 and autopep8, static code analysis
+
 
 ### Exercise
 
