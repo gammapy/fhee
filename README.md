@@ -36,21 +36,25 @@ We've added soft links to some of the versions of this package
 to avoid duplicating the data files (a few MB) in the git repo.
 E.g. `v01/gll_psch_v08.fit.gz` is a soft link to `data/gll_psch_v08.fit.gz`.
 
-
 ## Goals
 
 The goals of this tutorial are:
 
-- 
+- Take your Python skills to the next level, from writing a script for yourself to writing re-usable, maintainable code
+that would be appropriate for a contribution to the open-source
+packages we'll be sprinting on at this workshop.
+- Introduce you to some Python developer tools (listed below)
+that will help you if you decide to do more Python coding form now on.
+- Do all of this using a very small toy problem / package,
+which you can use as a playground during and after the turial.
+- Hopefully you'll have some fun and find the example we've chosen interesting!
 
-The goal is to make you aware of some of the existing tools and get you
-started. Using the links provided here you can then follow up later at 
-your own pace and really get to know the tools you think might be useful
-to you.
+## Tools
 
-We plan to cover the following tools (deviations from this plan are possible
-though):
+We plan to cover the following tools:
 
+* Python 2 and 3
+* IPython
 * [pytest](http://pytest.org/latest/) – Testing Python packages
 * [Sphinx](http://sphinx-doc.org/) – Documenting Python packages
 * [coverage.py](http://coverage.readthedocs.org/en/latest/) - Measure code coverage
@@ -62,8 +66,6 @@ though):
 * [pip](https://pip.pypa.io/en/latest/),
   [virtualenv](https://virtualenv.pypa.io/en/latest/),
   [setuptools](http://pythonhosted.org/setuptools/) - [Python packaging](https://packaging.python.org/en/latest/current.html)
-* [conda](http://conda.pydata.org/docs/) - Multi-platform package and environment management system
-* (Probably no time, maybe very briefly: [debugging](http://scipy-lectures.github.io/advanced/debugging/))
 
 ## How to prepare
 
