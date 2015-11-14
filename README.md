@@ -134,9 +134,32 @@ Vastly improved code:
 
 Your mission, should you decide to accept it, is to use the rest of the tutorial (30 min?) to apply your newly learned skills to extend the `fhee` package with a new function that finds the 2FHL sources with the highest-energy event nearby.
 
-Here's a suggestion how to do this step-by-step:
+Here's a suggestion how to do this in three steps
+(code, tests, docs) with detailed instructions.
 
-- Add a function `find_most_energetic_2fhl_sources` in the file `TODO` that takes arguments ``
+- Find a partner and do [pair programming](https://en.wikipedia.org/wiki/Pair_programming)!
+
+- Decide who will be the "driver" and who will be the "observer".
+
+- Start with a clean version of the repo and the `VTODO` folder and a new feature branch:
+```
+git status # should show no changes
+git checkout -b most-energetic
+cd VTODO
+```
+- Add a function `find_most_energetic_2fhl_sources` in the file `TODO` that takes arguments `n_sources` and `radius` and returns an `astropy.table.Table` with `n_sources` rows (sorted by highest-energy event near that source) and columns `Source_Name`, `Event_Energy` (TeV), `Event_Offset` (deg).
+
+- Add a test function `test_find_most_energetic_2fhl_sources`
+in the file `TODO` that executes
+```python
+table = find_most_energetic_2fhl_sources(n_sources=3, radius=0.5)
+```
+and then does a few assert statements on the result table:
+```
+assert len(table) == 4
+source = table[2] # get the third row
+assert source['Source_Name'] == 'TODO'
+```
 
 - If you've never make a contribution on Github before,
   you can make a pull request with your code if you like.
@@ -145,6 +168,20 @@ Here's a suggestion how to do this step-by-step:
   anyways, no worries if the code is unfinished or you didn't
   get around to writing tests or docs.)
 
+Actually these steps can be done in any order,
+there is a lot to be said for test-driven development
+(write the test first) or documentation-driven development
+(write the docs first).
+
+In practice it's often a creative an iterative procedure ...
+write one first test, write some code to make it pass,
+write another test, write some more code,
+interactively debug and fix issues with IPython,
+add a docstring, do some more coding, add one more test,
+then the high-level docs and make a pull request.
+
+Everyone has to find their own workflow that's effective for
+them, and different work
 
 ### Wrap-up
 
@@ -170,4 +207,4 @@ Some comments:
   are somewhat useful, but aren't used much and are
   unmaintained, because the author moved on to another
   project or job.
-- So start your own project if you like, but please also consider contributing to an existing package!
+- So start your own project if you like, but please also consider contributing to an existing package! We think that fewer, higher-quality packages with a small community of users and developers / maintainers is better and starting such collaborations is an explicit goal of the [PyGamma15](http://gammapy.github.io/PyGamma15/) workshop.
