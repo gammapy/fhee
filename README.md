@@ -17,7 +17,7 @@ before the tutorial starts**!
 
 ## How does the tutorial work?
 
-The basic idea of the tutorial is to start with some bad Python code and incrementally turn it into better Python code. We will go from buggy spaghetti code to a well-structured Python package with tests and docs and functionality that can re-used (installed and imported from other packages and shared with colleagues as a tarball).
+The basic idea of the tutorial is to start with some bad Python code and incrementally turn it into better Python code. We will go from buggy spaghetti code to a well-structured Python package with tests and docs and functionality that can be re-used (installed and imported from other packages and shared with colleagues as a tarball).
 
 This will be mostly a demo, where we do live coding and explain what's going on. In the second half we'll introduce a bunch of Python development tools (e.g. `pytest` to run tests or `sphinx` to generate HTML documentation), there it's easier if you want to follow along and run the commands for yourself.
 
@@ -49,7 +49,7 @@ The goals of this tutorial are:
 - Take your Python skills to the next level, from writing a script for yourself to writing re-usable, maintainable code
 that would be appropriate for a contribution to the open-source
 packages we'll be sprinting on at this workshop.
-- Introduce you to some Python developer tools that will help you if you decide to do more Python coding form now on.
+- Introduce you to some Python developer tools that will help you if you decide to do more Python coding from now on.
 
 Do all of this using a very small toy problem / package,
 which you can use as a playground during and after the tutorial.
@@ -81,7 +81,7 @@ The following packages / tools we only use as command line tools, not Python pac
 and they work the same whether you install it using Python 2 or 3.
 So it's enough to install those in one version of Python (using the Python 3.4 version is fine, here):
 
-* [python-modernize](https://github.com/mitsuhiko/python-modernize) and 
+* [python-modernize](https://github.com/mitsuhiko/python-modernize) and
 * [pep8](http://pep8.readthedocs.org/en/latest/) - Python [PEP8](https://www.python.org/dev/peps/pep-0008/) style guide checker
 * [autopep8](https://github.com/hhatto/autopep8#autopep8) - Python PEP8 auto code formatter
 * [prospector](http://prospector.readthedocs.org/en/master/) - Python static analysis

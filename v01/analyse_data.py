@@ -12,23 +12,23 @@ N=len(datalist.data)
 
 print N
 
-#loop over fermi 2FHL catalog 
+#loop over fermi 2FHL catalog
 for i in range(N+1):
     data= datalist.data[i-1]  # -1 otherwise it raises an error
     string =data['Source_Name']
     if (string=='2FHL J0534.5+2201'):
         x=data['RAJ2000']
         y=data['DEJ2000']
-        print (x, y)     
-
-        
+        print (x, y)
 
 
-from astropy.io import fits        
+
+
+from astropy.io import fits
 hdulist2=fits.open('2fhl_events.fits.gz')
 print hdulist2.info()
 
-datalist2=hdulist2[1] #hdu=1 is the event list 
+datalist2=hdulist2[1] #hdu=1 is the event list
 data2=datalist2.data
 
 N=len(datalist2.data)
