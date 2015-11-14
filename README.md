@@ -134,9 +134,6 @@ Vastly improved code:
 
 Your mission, should you decide to accept it, is to use the rest of the tutorial (30 min?) to apply your newly learned skills to extend the `fhee` package with a new function that finds the 2FHL sources with the highest-energy event nearby.
 
-Here's a suggestion how to do this in three steps
-(code, tests, docs) with detailed instructions.
-
 - Find a partner and do [pair programming](https://en.wikipedia.org/wiki/Pair_programming)!
 
 - Decide who will be the "driver" and who will be the "observer".
@@ -147,26 +144,12 @@ git status # should show no changes
 git checkout -b most-energetic
 cd VTODO
 ```
-- Add a function `find_most_energetic_2fhl_sources` in the file `TODO` that takes arguments `n_sources` and `radius` and returns an `astropy.table.Table` with `n_sources` rows (sorted by highest-energy event near that source) and columns `Source_Name`, `Event_Energy` (TeV), `Event_Offset` (deg).
 
-- Add a test function `test_find_most_energetic_2fhl_sources`
-in the file `TODO` that executes
-```python
-table = find_most_energetic_2fhl_sources(n_sources=3, radius=0.5)
-```
-and then does a few assert statements on the result table:
-```
-assert len(table) == 4
-source = table[2] # get the third row
-assert source['Source_Name'] == 'TODO'
-```
+There are three main steps:
 
-- If you've never make a contribution on Github before,
-  you can make a pull request with your code if you like.
-
-  (Just to practice git / Github a bit, we won't merge it
-  anyways, no worries if the code is unfinished or you didn't
-  get around to writing tests or docs.)
+1. Add code
+2. Add tests
+3. Add docs
 
 Actually these steps can be done in any order,
 there is a lot to be said for test-driven development
@@ -181,7 +164,47 @@ add a docstring, do some more coding, add one more test,
 then the high-level docs and make a pull request.
 
 Everyone has to find their own workflow that's effective for
-them, and different work
+them, and different workflows work better or worse for different cases.
+
+Here's detailed instructions what to do:
+
+- Add a function `find_most_energetic_2fhl_sources` in the file `TODO` that
+takes arguments `n_sources` and `radius` and returns an `astropy.table.Table`
+with `n_sources` rows (sorted by highest-energy event near that source) and
+columns `Source_Name`, `Event_Energy` (TeV), `Event_Offset` (deg).
+
+- Add a test function `test_find_most_energetic_2fhl_sources`
+in the file `TODO` that executes
+```python
+table = find_most_energetic_2fhl_sources(n_sources=3, radius=0.5)
+```
+and then does a few assert statements on the result table:
+```python
+assert len(table) == 4
+source = table[2] # get the third row
+assert source['Source_Name'] == 'spam'
+assert source['Energy'] == 42.4
+```
+All of these assert statements will fail because the reference
+value is incorrect. For float number assertions you should use `numpy.testing.assert_allclose`. It is instructive to see what failing test reports from `pytest` look like though, so please take some time to play with this. We'd even encourage you to add code that raises errors (e.g. `1/0` will raise a `ZeroDivisionError`) in various places to practice reading `pytest` error reports (e.g. in `test_find_most_energetic_2fhl_sources`, in `find_most_energetic_2fhl_sources` as well as in the modules containing these functions at the top level, so that the error happens during test collection, not test running).
+
+- Check the code coverage for the new code you added.
+
+- Add a docstring to your new function and add it to the `__all__` list at the top of the file. Then re-run the Sphinx build and see if the API docs for your function show up and are correctly formatted.
+
+ Sphinx errors can sometimes be hard to pin-point and resolve, so please intentionally insert some [restructured text](http://sphinx-doc.org/rest.html) and [Numpy docstring](https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt) formatting errors and try to understand the Sphinx warnings and errors.
+
+  Add a one-sentence description and a code example to the
+  high-level narrative docs in `docs/index.rst` and include
+  a link to the new function.
+
+- If you've never make a contribution on Github before,
+  you can make a pull request with your code if you like.
+
+  (Just to practice git / Github a bit, we won't merge it
+  anyways, no worries if the code is unfinished or you didn't
+  get around to writing tests or docs.)
+
 
 ### Wrap-up
 
