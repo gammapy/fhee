@@ -125,4 +125,46 @@ Vastly improved code:
 - python-modernize and six - Python 2 / 3 compatible code
 - pep8 and autopep8, static code analysis
 
-### v?? - Exercise
+### Exercise
+
+![Mission: Possible!](images/exercise.png)
+
+Your mission, should you decide to accept it, is to use the rest of the tutorial (30 min?) to apply your newly learned skills to extend the `fhee` package with a new function that finds the 2FHL sources with the highest-energy event nearby.
+
+Here's a suggestion how to do this step-by-step:
+
+- Add a function `find_most_energetic_2fhl_sources` in the file `TODO` that takes arguments ``
+
+- If you've never make a contribution on Github before,
+  you can make a pull request with your code if you like.
+
+  (Just to practice git / Github a bit, we won't merge it
+  anyways, no worries if the code is unfinished or you didn't
+  get around to writing tests or docs.)
+
+
+### Wrap-up
+
+Some questions:
+
+- Who learned something new?
+- Did you accept / complete the mission?
+- Do you think the `fhee` package is good code now?
+- Do you think it is worth the extra effort to make the
+  code modular, add tests, docs, package it up?
+- What factor in time do you think it takes to go from
+  working Python script to production-quality code?
+  2, 5, 10, 20 times as long?
+
+Some comments:
+
+- As you saw, it is possible to create and share a Python
+  package via Github and PyPI within a few hours.
+- We think that it's great if you do that for code you've
+  written that's useful for your colleagues!
+- But there's also a concern. There's 1000s of small
+  open-source Python packages written by one person that
+  are somewhat useful, but aren't used much and are
+  unmaintained, because the author moved on to another
+  project or job.
+- So start your own project if you like, but please also consider contributing to an existing package!
