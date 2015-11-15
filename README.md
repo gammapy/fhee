@@ -69,6 +69,8 @@ We recommend you follow the instructions [here](https://github.com/gammapy/PyGam
 
 * Python itself
 * [IPython](http://ipython.org/), including the [Jupyter notebook](http://jupyter.org/) for Python 2 and 3
+* [Numpy](http://www.numpy.org/)
+* [Astropy](http://www.astropy.org/)
 * [pytest](http://pytest.org/latest/) – Testing Python packages
 * [Sphinx](http://sphinx-doc.org/) – Documenting Python packages
 * [coverage.py](http://coverage.readthedocs.org/en/latest/) - Measure code coverage
