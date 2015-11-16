@@ -136,9 +136,15 @@ have another editor you like for Python programming, that's OK, too:
 ### v02 to v03 -- Restructure into a package
 
 - Start with `v02`
+- Write a `setup.py` so that the code can be installed.
+  See [here](https://github.com/pypa/sampleproject/blob/master/setup.py)
+  and [here](https://packaging.python.org/en/latest/distributing/)
+  for an example how to write it.
 - Restructure into a package
-- Add `setup.py`
-- Install with `python setup.py install`
+- Explain imports
+  - implicit relative (only works on Python 2, don't use this!)
+  - explicit relative (OK)
+  - absolute (OK)
 - Now code should be roughly like `v03`
 
 - Show `pytest` and `coverage` now?
