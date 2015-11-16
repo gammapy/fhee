@@ -14,22 +14,32 @@ code examples and doing the exercise at the end, please
 follow the instructions in the [Preparation / Requirements](https://github.com/gammapy/fhee#preparation--requirements) section below and install the required software
 before the tutorial starts**!
 
-
 ## How does the tutorial work?
 
-The basic idea of the tutorial is to start with some bad Python code and incrementally turn it into better Python code. We will go from buggy spaghetti code to a well-structured Python package with tests and docs and functionality that can be re-used (installed and imported from other packages and shared with colleagues as a tarball).
+The basic idea of the tutorial is to start with some bad Python code and
+incrementally turn it into better Python code. We will go from buggy spaghetti
+code to a well-structured Python package with tests and docs and functionality
+that can be re-used (installed and imported from other packages and shared with
+colleagues as a tarball).
 
-This will be mostly a demo, where we do live coding and explain what's going on. In the second half we'll introduce a bunch of Python development tools (e.g. `pytest` to run tests or `sphinx` to generate HTML documentation), there it's easier if you want to follow along and run the commands for yourself.
+This will be mostly a demo, where we do live coding and explain what's going on.
+In the second half we'll introduce a bunch of Python development tools (e.g.
+`pytest` to run tests or `sphinx` to generate HTML documentation), there it's
+easier if you want to follow along and run the commands for yourself.
 
-We've structured the tutorial into a series of TODO steps and put the starting point for each step of this project into folders called `vXX`. You can also use these during or after the tutorial to try stuff out.
+We've structured the tutorial into a series of TODO steps and put the starting
+point for each step of this project into folders called `vXX`. You can also use
+these during or after the tutorial to try stuff out.
 
-At the end we'll leave 30 minutes for an exercise where you get to apply the newly learned skills and extend the package by writing a function with docs and tests.
+At the end we'll leave 30 minutes for an exercise where you get to apply the
+newly learned skills and extend the package by writing a function with docs and
+tests.
 
 ## What's the `fhee` package?
 
-In this tutorial we'll create the Fermi-LAT High Energy Explorer (`fhee`) package together.
-
-The goal is to write some code to find the highest-energy photons near 2FHL catalog sources.
+In this tutorial we'll create the Fermi-LAT High Energy Explorer (`fhee`)
+package together. The goal is to write some code to find the highest-energy
+photons near 2FHL catalog sources.
 
 The input data files are:
 
@@ -46,20 +56,23 @@ E.g. `v01/gll_psch_v08.fit.gz` is a soft link to `data/gll_psch_v08.fit.gz`.
 
 The goals of this tutorial are:
 
-- Take your Python skills to the next level, from writing a script for yourself to writing re-usable, maintainable code
-that would be appropriate for a contribution to the open-source
-packages we'll be sprinting on at this workshop.
-- Introduce you to some Python developer tools that will help you if you decide to do more Python coding from now on.
+- Take your Python skills to the next level, from writing a script for yourself to
+writing re-usable, maintainable code that would be appropriate for a
+contribution to the open-source packages we'll be sprinting on at this workshop.
+- Introduce you to some Python developer tools that will help you if you decide to
+do more Python coding from now on.
 
-Do all of this using a very small toy problem / package,
-which you can use as a playground during and after the tutorial.
+Do all of this using a very small toy problem / package, which you can use as a
+playground during and after the tutorial.
 
 Hopefully you'll have some fun and find the example we've chosen interesting!
 
 ## Preparation / Requirements
 
-If you want to follow along during the tutorial by coding and running commands yourself and doing the exercise,
-you should git clone the https://github.com/gammapy/fhee repo (or download it as a zip file and extract it).
+If you want to follow along during the tutorial by coding and running commands
+yourself and doing the exercise, you should git clone the
+https://github.com/gammapy/fhee repo (or download it as a zip file and extract
+it).
 
 And you should install the following software listed here.
 
@@ -79,17 +92,18 @@ We recommend you follow the instructions [here](https://github.com/gammapy/PyGam
   [setuptools](http://pythonhosted.org/setuptools/) - [Python packaging](https://packaging.python.org/en/latest/current.html)
 * [six](http://pythonhosted.org/six/) - Python 2 / 3 compatible code
 
-The following packages / tools we only use as command line tools, not Python packages,
-and they work the same whether you install it using Python 2 or 3.
-So it's enough to install those in one version of Python (using the Python 3.4 version is fine, here):
+The following packages / tools we only use as command line tools, not Python
+packages, and they work the same whether you install it using Python 2 or 3. So
+it's enough to install those in one version of Python (using the Python 3.4
+version is fine, here):
 
 * [python-modernize](https://github.com/mitsuhiko/python-modernize) and
 * [pep8](http://pep8.readthedocs.org/en/latest/) - Python [PEP8](https://www.python.org/dev/peps/pep-0008/) style guide checker
 * [autopep8](https://github.com/hhatto/autopep8#autopep8) - Python PEP8 auto code formatter
 * [prospector](http://prospector.readthedocs.org/en/master/) - Python static analysis
 
-We'll also demo PyCharm ... install it if you'd like to try it out, but if you have another editor you like for Python programming,
-that's OK, too:
+We'll also demo PyCharm ... install it if you'd like to try it out, but if you
+have another editor you like for Python programming, that's OK, too:
 
 * [PyCharm](https://www.jetbrains.com/pycharm/) - The most intelligent Python IDE
 
@@ -106,7 +120,7 @@ that's OK, too:
   with re-usable classes and functions, tests, docs that can be shared
   with colleagues.
 
-### v01 to v02 -- Spaghetti to good code
+### v01 to v02 -- Improve code
 
 - Start with `v01`
 - The `analyse_data.py` script (~50 lines) implements the analysis.
@@ -119,30 +133,23 @@ that's OK, too:
 - Debug something
 - Now code should be roughly like `v02`
 
-### v02 to v03 -- Testing
+### v02 to v03 -- Restructure into a package
 
 - Start with `v02`
-- Add file `test_....py`
-- Run tests with pytest
-- Run coverage.py
+- Restructure into a package
+- Add `setup.py`
+- Install with `python setup.py install`
 - Now code should be roughly like `v03`
 
-### v03 to v04 -- Documentation
+- Show `pytest` and `coverage` now?
+
+### v03 to v04 -- Add Sphinx documentation
 
 - Start with `v03`
 - Add folder `docs`
 - Use sphinx-quickstart to add sphinx docs
 - Now code should be roughly like `v04`
 
-### v05 -- Packaging, setup.py
-
-- Start with `v04`
-- Use virtualenv to explain how Python install works.
-- Add setup.py
-- shareable package tarball (maybe put on PyPI, maybe not)
-- leave as one module or make it a package?
-- Add a license
-- Now code should be roughly like `v05`
 
 ## Code analysis and transformation tools
 
@@ -150,7 +157,6 @@ that's OK, too:
 - `cd code_analysis_trafo`
 - python-modernize and six - Python 2 / 3 compatible code
 - pep8 and autopep8, static code analysis
-
 
 ### Exercise
 
