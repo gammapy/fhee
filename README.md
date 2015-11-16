@@ -183,7 +183,13 @@ data_files=[('fhee_data',
   - implicit relative (only works on Python 2, don't use this!)
   - explicit relative (OK)
   - absolute (OK)
-- Now code should be roughly like `v03`
+- Add 2 lines of boilerplate to every source file:
+```python
+# Licensed under a 3-clause BSD style license - see LICENSE.rst
+from __future__ import absolute_import, division, print_function, unicode_literals
+```
+The future import makes Python 2 behave more like Python 3.
+- Now code should be roughly like `v04`
 
 - Show `pytest` and `coverage` now?
 
