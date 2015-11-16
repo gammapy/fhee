@@ -178,6 +178,35 @@ data_files=[('fhee_data',
 - Start with `v03`
 - Restructure into a package:
 ```
+.
+├── Makefile
+├── fhee
+│   ├── __init__.py
+│   ├── app.py
+│   ├── catalog.py
+│   ├── data
+│   │   ├── 2fhl_events.fits.gz -> ../../../data/2fhl_events.fits.gz
+│   │   └── gll_psch_v08.fit.gz -> ../../../data/gll_psch_v08.fit.gz
+│   ├── event_list.py
+│   └── tests
+│       ├── __init__.py
+│       ├── test_app.py
+│       ├── test_catalog.py
+│       └── test_event_list.py
+└── setup.py
+```
+- The `Makefile` is just to clean generated files,
+it's not related to `setup.py` or needed for Python.
+```
+$ cat Makefile 
+clean:
+	rm -rf dist *.egg-info build
+	find . -name "*.pyc" -exec rm {} \;
+	find . -name __pycache__ | xargs rm -fr
+```
+- The `setup.py` file has changed a bit and now also supports installing the data files:
+```python
+
 ```
 - Explain imports
   - implicit relative (only works on Python 2, don't use this!)
