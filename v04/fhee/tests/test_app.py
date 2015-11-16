@@ -1,5 +1,6 @@
 # Licensed under a 3-clause BSD style license - see LICENSE.rst
 from __future__ import absolute_import, division, print_function, unicode_literals
+from numpy.testing import assert_allclose
 import astropy.units as u
 from .. import get_data_filename, Catalog, EventList, find_2fhl_highest_energy_event
 
@@ -11,7 +12,7 @@ def test_find_2fhl_highest_energy_event():
     source_name = '2FHL J0534.5+2201'  # Crab
     radius = 3 * u.deg
 
-    highest_energy_event = find_2fhl_highest_energy_event(
+    event = find_2fhl_highest_energy_event(
         source_name, radius, catalog_2fhl, event_list_2fhl)
 
-    assert 1 == highest_energy_event
+    assert_allclose(event['ENERGY'], 1682116.25)

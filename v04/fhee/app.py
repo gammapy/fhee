@@ -3,8 +3,7 @@ from __future__ import absolute_import, division, print_function, unicode_litera
 import astropy.units as u
 import numpy as np
 from astropy.coordinates import SkyCoord
-from .catalog import Catalog
-from .event_list import EventList
+from . import Catalog, EventList, get_data_filename
 
 
 def find_2fhl_highest_energy_event(source_name, radius,
@@ -35,8 +34,8 @@ def find_2fhl_highest_energy_event(source_name, radius,
 
 
 def run_example():
-    catalog_2fhl = Catalog('data/gll_psch_v08.fit.gz')
-    event_list_2fhl = EventList('data/2fhl_events.fits.gz')
+    catalog_2fhl = Catalog(get_data_filename('gll_psch_v08.fit.gz'))
+    event_list_2fhl = EventList(get_data_filename('2fhl_events.fits.gz'))
 
     source_name = '2FHL J0534.5+2201'  # Crab
     radius = 3 * u.deg
