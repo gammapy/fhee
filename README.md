@@ -133,7 +133,7 @@ have another editor you like for Python programming, that's OK, too:
 - Debug something
 - Now code should be roughly like `v02`
 
-### v02 to v03 -- Restructure into a package
+### v02 to v03 -- Add a `setup.py`
 
 - Start with `v02`
 - Put data files in `data` folder (adapt source code) and rename module to `fhee.py`:
@@ -164,9 +164,21 @@ for an example how to write it:
 $ pyvenv-3.4 --system-site-packages venv
 $ source venv/bin/activate
 ```
+- Adding this to the `setup()` call didn't work for me:
+```python
+data_files=[('fhee_data',
+             ['data/2fhl_events.fits.gz',
+              'data/gll_psch_v08.fit.gz',
+              ])],
+```
+- Now code should be roughly like `v03`
+
+### v03 to v04 -- Restructure module to package
+
+- Start with `v03`
 - Restructure into a package:
 ```
-
+```
 - Explain imports
   - implicit relative (only works on Python 2, don't use this!)
   - explicit relative (OK)
@@ -175,13 +187,12 @@ $ source venv/bin/activate
 
 - Show `pytest` and `coverage` now?
 
-### v03 to v04 -- Add Sphinx documentation
+### v04 to v05 -- Add Sphinx documentation
 
-- Start with `v03`
+- Start with `v04`
 - Add folder `docs`
 - Use sphinx-quickstart to add sphinx docs
-- Now code should be roughly like `v04`
-
+- Now code should be roughly like `v05`
 
 ## Code analysis and transformation tools
 
