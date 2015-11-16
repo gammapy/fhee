@@ -255,7 +255,7 @@ TODO: v5 doesn't exist yet!
 ## Code analysis and transformation tools
 
 - This is an optional part, will be skipped if we're short on time...
-- `cd code_analysis_trafo`
+- `cd bad_code` and see the `bad.py` file
 - python-modernize and six - Python 2 / 3 compatible code
 - pep8 and autopep8, static code analysis
 
