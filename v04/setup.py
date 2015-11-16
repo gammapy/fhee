@@ -10,4 +10,5 @@ setup(
     package_data={
         'fhee': ['data/*'],
     },
+    license='MIT',
 )
