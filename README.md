@@ -136,11 +136,37 @@ have another editor you like for Python programming, that's OK, too:
 ### v02 to v03 -- Restructure into a package
 
 - Start with `v02`
+- Put data files in `data` folder (adapt source code) and rename module to `fhee.py`:
+```
+$ tree .
+.
+├── data
+│   ├── 2fhl_events.fits.gz -> ../../data/2fhl_events.fits.gz
+│   └── gll_psch_v08.fit.gz -> ../../data/gll_psch_v08.fit.gz
+├── fhee.py
+└── setup.py
+```
 - Write a `setup.py` so that the code can be installed.
-  See [here](https://github.com/pypa/sampleproject/blob/master/setup.py)
-  and [here](https://packaging.python.org/en/latest/distributing/)
-  for an example how to write it.
-- Restructure into a package
+ See [here](https://github.com/pypa/sampleproject/blob/master/setup.py) and [here](https://packaging.python.org/en/latest/distributing/)
+for an example how to write it:
+
+    ```python
+    from setuptools import setup
+
+    setup(
+        name='fhee',
+        version=0.1,
+        py_modules=['fhee'],
+    )
+    ```
+- Show how `python setup.py install` installs Python packages using a virtualenv:
+```
+$ pyvenv-3.4 --system-site-packages venv
+$ source venv/bin/activate
+```
+- Restructure into a package:
+```
+
 - Explain imports
   - implicit relative (only works on Python 2, don't use this!)
   - explicit relative (OK)
