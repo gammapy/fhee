@@ -244,15 +244,19 @@ py.test fhee
 py.test fhee --cov=fhee --cov-report html
 open htmlcov/index.html 
 ```
-
-### v04 to v05 -- Add Sphinx documentation
-
-TODO: v5 doesn't exist yet!
-
-- Start with `v04`
-- Add folder `docs`
-- Use sphinx-quickstart to add sphinx docs
-- Now code should be roughly like `v05`
+- Finally, let's add some documentation for `fhee`.
+Like all Python projects, we'll use the [Sphinx](http://sphinx-doc.org/) tool
+and the [restructured text (RST)](http://sphinx-doc.org/rest.html#rst-primer)
+markup language.
+- We'll use [sphinx-quickstart](http://sphinx-doc.org/invocation.html)
+and answer some questions to generate an `index.rst`, `conf.py` and `Makefile`:
+```
+mkdir docs
+cd docs
+sphinx-quickstart # answer questions interactively
+make html
+open _build/html/index.html 
+```
 
 ## Code analysis and transformation tools
 
