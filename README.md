@@ -164,14 +164,11 @@ setup(
 $ pyvenv-3.4 --system-site-packages venv
 $ source venv/bin/activate
 ```
-- Adding this to the `setup()` call didn't work for me:
-```python
-data_files=[('fhee_data',
-             ['data/2fhl_events.fits.gz',
-              'data/gll_psch_v08.fit.gz',
-              ])],
-```
-- Now code should be roughly like `v03`
+- Now code should be roughly like `v03`.
+- One issue we still have is that the data files aren't installed,
+i.e. running the code from the installed version won't work.
+We'll fix this in the next version, after re-structuring the single-file
+module into a multi-file package.
 
 ### v03 to v04 -- Restructure module to package
 
