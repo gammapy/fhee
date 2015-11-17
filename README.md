@@ -205,22 +205,22 @@ clean:
 	find . -name __pycache__ | xargs rm -fr
 ```
 - The `setup.py` file has changed a bit and now also supports installing the data files and to declare some metadata about our package:
-```python
-from setuptools import setup
+    ```python
+    from setuptools import setup
 
-setup(
-    name='fhee',
-    version=1.0,
-    description='Fermi high-energy explorer',
-    url='https://github.com/gammapy/fhee',
-    packages=['fhee', 'fhee.tests'],
-    install_requires=['numpy', 'astropy'],
-    package_data={
-        'fhee': ['data/*'],
-    },
-    license='MIT',
-)
-```
+    setup(
+        name='fhee',
+        version=1.0,
+        description='Fermi high-energy explorer',
+        url='https://github.com/gammapy/fhee',
+        packages=['fhee', 'fhee.tests'],
+        install_requires=['numpy', 'astropy'],
+        package_data={
+            'fhee': ['data/*'],
+        },
+        license='MIT',
+    )
+    ```
 - Explain imports
   - implicit relative (only works on Python 2, don't use this!)
   - explicit relative (OK)
