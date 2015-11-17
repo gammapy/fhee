@@ -137,28 +137,28 @@ have another editor you like for Python programming, that's OK, too:
 
 - Start with `v02`
 - Put data files in `data` folder (adapt source code) and rename module to `fhee.py`:
-    ```
-    $ tree .
-    .
-    ├── data
-    │   ├── 2fhl_events.fits.gz -> ../../data/2fhl_events.fits.gz
-    │   └── gll_psch_v08.fit.gz -> ../../data/gll_psch_v08.fit.gz
-    ├── fhee.py
-    └── setup.py
-    ```
+```
+$ tree .
+.
+├── data
+│   ├── 2fhl_events.fits.gz -> ../../data/2fhl_events.fits.gz
+│   └── gll_psch_v08.fit.gz -> ../../data/gll_psch_v08.fit.gz
+├── fhee.py
+└── setup.py
+```
 - Write a `setup.py` so that the code can be installed.
  See [here](https://github.com/pypa/sampleproject/blob/master/setup.py) and [here](https://packaging.python.org/en/latest/distributing/)
 for an example how to write it:
 
-    ```python
-    from setuptools import setup
+```python
+from setuptools import setup
 
-    setup(
-        name='fhee',
-        version=0.1,
-        py_modules=['fhee'],
-    )
-    ```
+setup(
+    name='fhee',
+    version=0.1,
+    py_modules=['fhee'],
+)
+```
 - Show how `python setup.py install` installs Python packages using a virtualenv:
     ```
     $ pyvenv-3.4 --system-site-packages venv
@@ -177,24 +177,24 @@ for an example how to write it:
 
 - Start with `v03`
 - Restructure into a package:
-    ```
-    .
-    ├── Makefile
-    ├── fhee
-    │   ├── __init__.py
-    │   ├── app.py
-    │   ├── catalog.py
-    │   ├── data
-    │   │   ├── 2fhl_events.fits.gz -> ../../../data/2fhl_events.fits.gz
-    │   │   └── gll_psch_v08.fit.gz -> ../../../data/gll_psch_v08.fit.gz
-    │   ├── event_list.py
-    │   └── tests
-    │       ├── __init__.py
-    │       ├── test_app.py
-    │       ├── test_catalog.py
-    │       └── test_event_list.py
-    └── setup.py
-    ```
+```
+.
+├── Makefile
+├── fhee
+│   ├── __init__.py
+│   ├── app.py
+│   ├── catalog.py
+│   ├── data
+│   │   ├── 2fhl_events.fits.gz -> ../../../data/2fhl_events.fits.gz
+│   │   └── gll_psch_v08.fit.gz -> ../../../data/gll_psch_v08.fit.gz
+│   ├── event_list.py
+│   └── tests
+│       ├── __init__.py
+│       ├── test_app.py
+│       ├── test_catalog.py
+│       └── test_event_list.py
+└── setup.py
+```
 - The `Makefile` is just to clean generated files,
 it's not related to `setup.py` or needed for Python.
     ```
@@ -378,7 +378,7 @@ Some comments:
   are somewhat useful, but aren't used much and are
   unmaintained, because the author moved on to another
   project or job.
-- So start your own project if you like, but please also consider contributing to
+-   So start your own project if you like, but please also consider contributing to
 an existing package! We think that fewer, higher-quality packages with a small
 community of users and developers / maintainers is better and starting such
 collaborations is an explicit goal of the
