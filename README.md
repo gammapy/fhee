@@ -110,28 +110,55 @@ have another editor you like for Python programming, that's OK, too:
 ## Tutorial playbook
 
 ### Intro
+- Clone the repository with `git clone https://github.com/gammapy/fhee.git`, if you haven't done yet.
+- Take a few min. to read the analysis script in `v01/analyse_data.py` and try to understand what it does. Some questions you might adress are:
 
-- Everyone get the repo, have XY installed
-- Idea for the tutorial -- incremental improvement of analysis script
-- Data example = 2FHL catalog and event list
-- Analysis: find highest-enery events near a given 2FHL source
-- There are different versions of the code (v01 to v05),
-  going from buggy spaghetti code to a production-quality Python package
-  with re-usable classes and functions, tests, docs that can be shared
-  with colleagues.
+ - Is the code easy to understand?
+ - Do you trust the results, or are there likely bugs in the code?
+ - Is the code efficient enough?
+ - Are the results easily reproducible?
+ - Might the code (or some parts of the code) be useful for others?
 
 ### v01 to v02 -- Improve code
 
-- Start with `v01`
-- The `analyse_data.py` script (~50 lines) implements the analysis.
-  But it's buggy and not structured in a re-usable way.
-- Fix indexing bug in highest-energy event energy print-out.
-- No import `*`, imports at the top
-- Use `astropy.table.Table` instead of `astropy.io.fits.BinTableHDU`
-- Re-factor code into functions and classes (make it more readable and re-usable)
-- Compute results as `Table`
-- Debug something
+Fix bugs:
+- Use e.g. `from IPython import embed; embed()` to interactively check the code.
+- Python uses zero based indexing, fix line 56 and 16 + 17
+
+Improve code style:
+- Move '`import`' statements to the top of the file
+- Put whitespace around operators like `+`, `-`, `*`, `/`, `=`, ...
+- Put whitespace after '`,`'
+- Don't use builtin Python keywords such as `list`, `dict`, etc. as variable names
+- Use inline comments to explain what the code does, but don't comment on obvious things
+
+
+Use suitable, existing data structures:
+- Replace lines 6 - 13 by using an `astropy.Table`. Use self-explaining variable names
+such as `catalog_2fhl` and `event_list_2fhl`.
+- Check table attributes and methods like `.colnames`, `sort()` and `.show_in_browser()`
+- Replace lines 28 - 38 using an `astropy.Table`
+- Use astropy.units
+- Use astropy.coordinates
+
+Improve code effiency:
+- Replace the first Python loop (line 16 - 22) with a corresponding numpy expression
+- Replace lines 44 - 49 using table indexing/masking
+
+
+Refactor code into classes / functions:
+- Write a '`Catalog`' class, that is initilized with the filename and stores the data in a '`self.table`' attribute. Add a method '`get_source_by_name()`', that returns the corrsponding row.
+- Write an '`EventList`' class with a method '`select_events_in_circle()`', that returns a corresponding subset of the event list
+
+
+Make the classes reusable:
+- Add docstrings to the classes and methods using triple quotes.
+- Write a main function `find_2fhl_highest_energy_events()`
+- Add `if __name__ == '__main__:'` to the script and call the main function
+with the corresponding parameters.
+
 - Now code should be roughly like `v02`
+
 
 ### v02 to v03 -- Add a `setup.py`
 
@@ -195,7 +222,7 @@ module into a multi-file package.
 - The `Makefile` is just to clean generated files,
 it's not related to `setup.py` or needed for Python.
 ```
-$ cat Makefile 
+$ cat Makefile
 clean:
 	rm -rf dist *.egg-info build
 	find . -name "*.pyc" -exec rm {} \;
@@ -239,7 +266,7 @@ py.test fhee
 - To make a coverage report pip install [pytest-cov](https://pypi.python.org/pypi/pytest-cov) and run
 ```
 py.test fhee --cov=fhee --cov-report html
-open htmlcov/index.html 
+open htmlcov/index.html
 ```
 - Finally, let's add some documentation for `fhee`.
 Like all Python projects, we'll use the [Sphinx](http://sphinx-doc.org/) tool
