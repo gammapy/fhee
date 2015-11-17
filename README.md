@@ -268,12 +268,18 @@ imports the `fhee` package from the source folder (which is one level up from th
 sys.path.insert(0, os.path.abspath('..'))
 extensions = ['sphinx.ext.autodoc', 'sphinx.ext.napoleon']
 ```
-Now we can use the automodule directive at the place in the docs where we want the API docs
-(we put it in `docs/api.rst`)
+Now we can use the automodule directive at the place in the docs where we want the API docs:
 ```rst
 .. automodule:: fhee
    :members:
 ```
+- Comment: Sphinx is approximately as good / bad as LaTeX or Doxygen.
+It's very powerful and extensible, but also very complex.
+There's some things we haven't set up yet, e.g. [intersphinx](http://sphinx-doc.org/latest/ext/intersphinx.html)
+or multi-page documentation or running the sphinx build via `python setup.py sphinx_build`
+or adding plots or ...
+As an example of a relatively small package with relatively nice docs,
+check out https://github.com/astropy/astroplan.
 
 ## Code analysis and transformation tools
 
