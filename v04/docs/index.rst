@@ -25,13 +25,24 @@ Testing
     cd v04
     py.test fhee
 
-Documentation
--------------
+Usage
+-----
 
-Contents:
+`fhee` implements the :py:class:`fhee.Catalog` and :py:class:`~fhee.EventList` classes
+that represent the 2FHL catalog and event list (data files in FITS format are bundled).
 
-.. toctree::
-   :maxdepth: 2
+As an example application, there's the :py:func:`fhee.find_2fhl_highest_energy_event` function
+and the :py:func:`fhee.run_example` function.
 
-   api
-   usage
+
+.. code-block:: python
+
+    import fhee
+    catalog = fhee.Catalog()
+    print(len(catalog))
+
+API
+---
+
+.. automodule:: fhee
+   :members:

@@ -259,7 +259,17 @@ open _build/html/index.html
 ```
 - Next we write some high-level docs in RST (titles, code blocks, references),
 re-running `make html` and re-freshing the browser to see if the markup is OK.
-- To auto-generate API documentation we'll use the 
+- To auto-generate API documentation we'll use the
+[sphinx.ext.autodoc](http://sphinx-doc.org/ext/autodoc.html) (include documentation from docstrings)
+and [sphinx.ext.napoleon](http://sphinx-doc.org/latest/ext/napoleon.html) extension (support for Numpy style docstrings),
+and we'll tell Sphinx to add `..` to `sys.path`, which implies that `Sphinx` finds and
+imports the `fhee` package from the source folder (which is one level up from the docs folder):
+```python
+sys.path.insert(0, os.path.abspath('..'))
+extensions = ['sphinx.ext.autodoc', 'sphinx.ext.napoleon']
+```
+Now we can use the automodule directive at the place in the docs where we want the API docs
+(we put it in `docs/api.rst`)
 ```rst
 .. automodule:: fhee
    :members:
