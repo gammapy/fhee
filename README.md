@@ -197,53 +197,53 @@ setup(
 ```
 - The `Makefile` is just to clean generated files,
 it's not related to `setup.py` or needed for Python.
-    ```
-    $ cat Makefile 
-    clean:
-    	rm -rf dist *.egg-info build
-    	find . -name "*.pyc" -exec rm {} \;
-    	find . -name __pycache__ | xargs rm -fr
-    ```
+```
+$ cat Makefile 
+clean:
+	rm -rf dist *.egg-info build
+	find . -name "*.pyc" -exec rm {} \;
+	find . -name __pycache__ | xargs rm -fr
+```
 - The `setup.py` file has changed a bit and now also supports installing the data files and to declare some metadata about our package:
-    ```python
-    from setuptools import setup
+```python
+from setuptools import setup
 
-    setup(
-        name='fhee',
-        version=1.0,
-        description='Fermi high-energy explorer',
-        url='https://github.com/gammapy/fhee',
-        packages=['fhee', 'fhee.tests'],
-        install_requires=['numpy', 'astropy'],
-        package_data={
-            'fhee': ['data/*'],
-        },
-        license='MIT',
-    )
-    ```
+setup(
+    name='fhee',
+    version=1.0,
+    description='Fermi high-energy explorer',
+    url='https://github.com/gammapy/fhee',
+    packages=['fhee', 'fhee.tests'],
+    install_requires=['numpy', 'astropy'],
+    package_data={
+        'fhee': ['data/*'],
+    },
+    license='MIT',
+)
+```
 - Explain imports
   - implicit relative (only works on Python 2, don't use this!)
   - explicit relative (OK)
   - absolute (OK)
 - Add 2 lines of boilerplate to every source file:
-    ```python
-    # Licensed under a 3-clause BSD style license - see LICENSE.rst
-    from __future__ import absolute_import, division, print_function, unicode_literals
-    ```
+```python
+# Licensed under a 3-clause BSD style license - see LICENSE.rst
+from __future__ import absolute_import, division, print_function, unicode_literals
+```
 The future import makes Python 2 behave more like Python 3.
 (All of our code was already Python 2 / 3 compatible,
 so it doesn't make a difference in this case, but it usually does.)
 - Now code should be roughly like `v04`
 
 - To run `pytest`:
-    ```
-    py.test fhee
-    ```
+```
+py.test fhee
+```
 - To make a coverage report pip install [pytest-cov](https://pypi.python.org/pypi/pytest-cov) and run
-    ```
-    py.test fhee --cov=fhee --cov-report html
-    open htmlcov/index.html 
-    ```
+```
+py.test fhee --cov=fhee --cov-report html
+open htmlcov/index.html 
+```
 
 ### v04 to v05 -- Add Sphinx documentation
 
@@ -274,11 +274,11 @@ new function that finds the 2FHL sources with the highest-energy event nearby.
 - Decide who will be the "driver" and who will be the "observer".
 
 - Start with a clean version of the repo and the `V04` folder and a new feature branch:
-    ```
-    git status # should show no changes
-    git checkout -b most-energetic
-    cd V04
-    ```
+```
+git status # should show no changes
+git checkout -b most-energetic
+cd V04
+```
 
 There are three main steps:
 
@@ -310,16 +310,16 @@ columns `Source_Name`, `Event_Energy` (TeV), `Event_Offset` (deg).
 
 - Add a test function `test_find_most_energetic_2fhl_sources`
 in the file `fhee/tests/test_app.py` that executes
-    ```python
-    table = find_most_energetic_2fhl_sources(n_sources=3, radius=0.5)
-    ```
+```python
+table = find_most_energetic_2fhl_sources(n_sources=3, radius=0.5)
+```
 and then does a few assert statements on the result table:
-    ```python
-    assert len(table) == 4
-    source = table[2] # get the third row
-    assert source['Source_Name'] == 'spam'
-    assert source['Energy'] == 42.4
-    ```
+```python
+assert len(table) == 4
+source = table[2] # get the third row
+assert source['Source_Name'] == 'spam'
+assert source['Energy'] == 42.4
+```
 All of these assert statements will fail because the reference value is
 incorrect. For float number assertions you should use
 `numpy.testing.assert_allclose`. It is instructive to see what failing test
