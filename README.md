@@ -137,15 +137,15 @@ have another editor you like for Python programming, that's OK, too:
 
 - Start with `v02`
 - Put data files in `data` folder (adapt source code) and rename module to `fhee.py`:
-```
-$ tree .
-.
-├── data
-│   ├── 2fhl_events.fits.gz -> ../../data/2fhl_events.fits.gz
-│   └── gll_psch_v08.fit.gz -> ../../data/gll_psch_v08.fit.gz
-├── fhee.py
-└── setup.py
-```
+    ```
+    $ tree .
+    .
+    ├── data
+    │   ├── 2fhl_events.fits.gz -> ../../data/2fhl_events.fits.gz
+    │   └── gll_psch_v08.fit.gz -> ../../data/gll_psch_v08.fit.gz
+    ├── fhee.py
+    └── setup.py
+    ```
 - Write a `setup.py` so that the code can be installed.
  See [here](https://github.com/pypa/sampleproject/blob/master/setup.py) and [here](https://packaging.python.org/en/latest/distributing/)
 for an example how to write it:
@@ -160,50 +160,50 @@ for an example how to write it:
     )
     ```
 - Show how `python setup.py install` installs Python packages using a virtualenv:
-```
-$ pyvenv-3.4 --system-site-packages venv
-$ source venv/bin/activate
-```
+    ```
+    $ pyvenv-3.4 --system-site-packages venv
+    $ source venv/bin/activate
+    ```
 - Adding this to the `setup()` call didn't work for me:
-```python
-data_files=[('fhee_data',
-             ['data/2fhl_events.fits.gz',
-              'data/gll_psch_v08.fit.gz',
-              ])],
-```
+    ```python
+    data_files=[('fhee_data',
+                 ['data/2fhl_events.fits.gz',
+                  'data/gll_psch_v08.fit.gz',
+                  ])],
+    ```
 - Now code should be roughly like `v03`
 
 ### v03 to v04 -- Restructure module to package
 
 - Start with `v03`
 - Restructure into a package:
-```
-.
-├── Makefile
-├── fhee
-│   ├── __init__.py
-│   ├── app.py
-│   ├── catalog.py
-│   ├── data
-│   │   ├── 2fhl_events.fits.gz -> ../../../data/2fhl_events.fits.gz
-│   │   └── gll_psch_v08.fit.gz -> ../../../data/gll_psch_v08.fit.gz
-│   ├── event_list.py
-│   └── tests
-│       ├── __init__.py
-│       ├── test_app.py
-│       ├── test_catalog.py
-│       └── test_event_list.py
-└── setup.py
-```
+    ```
+    .
+    ├── Makefile
+    ├── fhee
+    │   ├── __init__.py
+    │   ├── app.py
+    │   ├── catalog.py
+    │   ├── data
+    │   │   ├── 2fhl_events.fits.gz -> ../../../data/2fhl_events.fits.gz
+    │   │   └── gll_psch_v08.fit.gz -> ../../../data/gll_psch_v08.fit.gz
+    │   ├── event_list.py
+    │   └── tests
+    │       ├── __init__.py
+    │       ├── test_app.py
+    │       ├── test_catalog.py
+    │       └── test_event_list.py
+    └── setup.py
+    ```
 - The `Makefile` is just to clean generated files,
 it's not related to `setup.py` or needed for Python.
-```
-$ cat Makefile 
-clean:
-	rm -rf dist *.egg-info build
-	find . -name "*.pyc" -exec rm {} \;
-	find . -name __pycache__ | xargs rm -fr
-```
+    ```
+    $ cat Makefile 
+    clean:
+    	rm -rf dist *.egg-info build
+    	find . -name "*.pyc" -exec rm {} \;
+    	find . -name __pycache__ | xargs rm -fr
+    ```
 - The `setup.py` file has changed a bit and now also supports installing the data files and to declare some metadata about our package:
     ```python
     from setuptools import setup
@@ -226,22 +226,24 @@ clean:
   - explicit relative (OK)
   - absolute (OK)
 - Add 2 lines of boilerplate to every source file:
-```python
-# Licensed under a 3-clause BSD style license - see LICENSE.rst
-from __future__ import absolute_import, division, print_function, unicode_literals
-```
+    ```python
+    # Licensed under a 3-clause BSD style license - see LICENSE.rst
+    from __future__ import absolute_import, division, print_function, unicode_literals
+    ```
 The future import makes Python 2 behave more like Python 3.
+(All of our code was already Python 2 / 3 compatible,
+so it doesn't make a difference in this case, but it usually does.)
 - Now code should be roughly like `v04`
 
 - To run `pytest`:
-```
-py.test fhee
-```
+    ```
+    py.test fhee
+    ```
 - To make a coverage report pip install [pytest-cov](https://pypi.python.org/pypi/pytest-cov) and run
-```
-py.test fhee --cov=fhee --cov-report html
-open htmlcov/index.html 
-```
+    ```
+    py.test fhee --cov=fhee --cov-report html
+    open htmlcov/index.html 
+    ```
 
 ### v04 to v05 -- Add Sphinx documentation
 
@@ -263,18 +265,20 @@ TODO: v5 doesn't exist yet!
 
 ![Mission: Possible!](images/exercise.png)
 
-Your mission, should you decide to accept it, is to use the rest of the tutorial (30 min?) to apply your newly learned skills to extend the `fhee` package with a new function that finds the 2FHL sources with the highest-energy event nearby.
+Your mission, should you decide to accept it, is to use the rest of the tutorial
+(30 min?) to apply your newly learned skills to extend the `fhee` package with a
+new function that finds the 2FHL sources with the highest-energy event nearby.
 
 - Find a partner and do [pair programming](https://en.wikipedia.org/wiki/Pair_programming)!
 
 - Decide who will be the "driver" and who will be the "observer".
 
-- Start with a clean version of the repo and the `VTODO` folder and a new feature branch:
-```
-git status # should show no changes
-git checkout -b most-energetic
-cd VTODO
-```
+- Start with a clean version of the repo and the `V04` folder and a new feature branch:
+    ```
+    git status # should show no changes
+    git checkout -b most-energetic
+    cd V04
+    ```
 
 There are three main steps:
 
@@ -299,31 +303,45 @@ them, and different workflows work better or worse for different cases.
 
 Here's detailed instructions what to do:
 
-- Add a function `find_most_energetic_2fhl_sources` in the file `TODO` that
+- Add a function `find_most_energetic_2fhl_sources` in the file `fhee/app.py` that
 takes arguments `n_sources` and `radius` and returns an `astropy.table.Table`
 with `n_sources` rows (sorted by highest-energy event near that source) and
 columns `Source_Name`, `Event_Energy` (TeV), `Event_Offset` (deg).
 
 - Add a test function `test_find_most_energetic_2fhl_sources`
-in the file `TODO` that executes
-```python
-table = find_most_energetic_2fhl_sources(n_sources=3, radius=0.5)
-```
+in the file `fhee/tests/test_app.py` that executes
+    ```python
+    table = find_most_energetic_2fhl_sources(n_sources=3, radius=0.5)
+    ```
 and then does a few assert statements on the result table:
-```python
-assert len(table) == 4
-source = table[2] # get the third row
-assert source['Source_Name'] == 'spam'
-assert source['Energy'] == 42.4
-```
-All of these assert statements will fail because the reference
-value is incorrect. For float number assertions you should use `numpy.testing.assert_allclose`. It is instructive to see what failing test reports from `pytest` look like though, so please take some time to play with this. We'd even encourage you to add code that raises errors (e.g. `1/0` will raise a `ZeroDivisionError`) in various places to practice reading `pytest` error reports (e.g. in `test_find_most_energetic_2fhl_sources`, in `find_most_energetic_2fhl_sources` as well as in the modules containing these functions at the top level, so that the error happens during test collection, not test running).
+    ```python
+    assert len(table) == 4
+    source = table[2] # get the third row
+    assert source['Source_Name'] == 'spam'
+    assert source['Energy'] == 42.4
+    ```
+All of these assert statements will fail because the reference value is
+incorrect. For float number assertions you should use
+`numpy.testing.assert_allclose`. It is instructive to see what failing test
+reports from `pytest` look like though, so please take some time to play with
+this. We'd even encourage you to add code that raises errors (e.g. `1/0` will
+raise a `ZeroDivisionError`) in various places to practice reading `pytest`
+error reports (e.g. in `test_find_most_energetic_2fhl_sources`, in
+`find_most_energetic_2fhl_sources` as well as in the modules containing these
+functions at the top level, so that the error happens during test collection,
+not test running).
 
 - Check the code coverage for the new code you added.
 
-- Add a docstring to your new function and add it to the `__all__` list at the top of the file. Then re-run the Sphinx build and see if the API docs for your function show up and are correctly formatted.
+- Add a docstring to your new function and add it to the `__all__` list at the top
+of the file. Then re-run the Sphinx build and see if the API docs for your
+function show up and are correctly formatted.
 
- Sphinx errors can sometimes be hard to pin-point and resolve, so please intentionally insert some [restructured text](http://sphinx-doc.org/rest.html) and [Numpy docstring](https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt) formatting errors and try to understand the Sphinx warnings and errors.
+ Sphinx errors can sometimes be hard to pin-point and resolve, so please
+ intentionally insert some [restructured text](http://sphinx-doc.org/rest.html)
+ and [Numpy
+ docstring](https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt)
+ formatting errors and try to understand the Sphinx warnings and errors.
 
   Add a one-sentence description and a code example to the
   high-level narrative docs in `docs/index.rst` and include
@@ -335,7 +353,6 @@ value is incorrect. For float number assertions you should use `numpy.testing.as
   (Just to practice git / Github a bit, we won't merge it
   anyways, no worries if the code is unfinished or you didn't
   get around to writing tests or docs.)
-
 
 ### Wrap-up
 
@@ -361,4 +378,8 @@ Some comments:
   are somewhat useful, but aren't used much and are
   unmaintained, because the author moved on to another
   project or job.
-- So start your own project if you like, but please also consider contributing to an existing package! We think that fewer, higher-quality packages with a small community of users and developers / maintainers is better and starting such collaborations is an explicit goal of the [PyGamma15](http://gammapy.github.io/PyGamma15/) workshop.
+- So start your own project if you like, but please also consider contributing to
+an existing package! We think that fewer, higher-quality packages with a small
+community of users and developers / maintainers is better and starting such
+collaborations is an explicit goal of the
+[PyGamma15](http://gammapy.github.io/PyGamma15/) workshop.
