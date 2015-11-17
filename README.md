@@ -160,17 +160,17 @@ setup(
 )
 ```
 - Show how `python setup.py install` installs Python packages using a virtualenv:
-    ```
-    $ pyvenv-3.4 --system-site-packages venv
-    $ source venv/bin/activate
-    ```
+```
+$ pyvenv-3.4 --system-site-packages venv
+$ source venv/bin/activate
+```
 - Adding this to the `setup()` call didn't work for me:
-    ```python
-    data_files=[('fhee_data',
-                 ['data/2fhl_events.fits.gz',
-                  'data/gll_psch_v08.fit.gz',
-                  ])],
-    ```
+```python
+data_files=[('fhee_data',
+             ['data/2fhl_events.fits.gz',
+              'data/gll_psch_v08.fit.gz',
+              ])],
+```
 - Now code should be roughly like `v03`
 
 ### v03 to v04 -- Restructure module to package
