@@ -255,7 +255,14 @@ mkdir docs
 cd docs
 sphinx-quickstart # answer questions interactively
 make html
-open _build/html/index.html 
+open _build/html/index.html
+```
+- Next we write some high-level docs in RST (titles, code blocks, references),
+re-running `make html` and re-freshing the browser to see if the markup is OK.
+- To auto-generate API documentation we'll use the 
+```rst
+.. automodule:: fhee
+   :members:
 ```
 
 ## Code analysis and transformation tools
